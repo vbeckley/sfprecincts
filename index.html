@@ -118,8 +118,16 @@
               'layout': {
                   'visibility': 'none',
                 },
-              'filter':
-                ["all", ["has", "Completed"]],
+              'filter':[
+                "all",
+                [
+                  "match",
+                  ["Completed"],
+                  ["0"],
+                  false,
+                  true
+                ]
+              ],
               'paint': {
                   'fill-color':
                   '#eba123',

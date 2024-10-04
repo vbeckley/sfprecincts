@@ -110,6 +110,21 @@
                 'fill-opacity': .5
               }
             });
+      //////////////////COMPLETED PRECINCTS///////////////
+            map.addLayer({
+              'id': 'Complete',
+              'type': 'fill',
+              'source': 'precincts',
+              'layout': {
+                  'visibility': 'none',
+                },
+              'filter':
+                ["all", ["has", "Completed"]],
+              'paint': {
+                  'fill-color':
+                  '#eba123',
+              }
+            });
           ///////////////////PRIORITY PRECINCTS/////////////////
             map.addLayer({
               'id': 'precincts-priority',

@@ -67,36 +67,36 @@
             });
       
             //////////////////SUPERVISOR DISTRICTS CENTROIDS FOR LABEL////////////////// 
-            map.addSource('sup_centroid', {
-            type: 'csv',
-            // Use a URL for the value for the `data` property.
-            data: 'https://vbeckley.github.io/election2024/sup_pt_xy.csv'
-            });
+    //        map.addSource('sup_centroid', {
+      //      type: 'csv',
+        //    // Use a URL for the value for the `data` property.
+          //  data: 'https://vbeckley.github.io/election2024/sup_pt_xy.csv'
+           // });
       
           //Add again, this time as a label
-            map.addLayer({
-              'id': 'sup_label',
-              'type': 'symbol',
-              'source': 'sup_centroid',
-              'maxzoom': 14,
-              'layout': {
-                  'text-field': ["get", "sup_dist"],
-                  'text-size': [
-                      "interpolate",
-                      ["linear"],
-                      ["zoom"],
-                      10,
-                      16,
-                      22,
-                      70
-                    ]
-                },
-              'paint': {
-                  'text-color':"#a6a6a6",
-                  'text-halo-color': "#f7f7f7",
-                  'text-halo-width': 3
-              }
-            });
+    //        map.addLayer({
+      //        'id': 'sup_label',
+        //      'type': 'symbol',
+          //    'source': 'sup_centroid',
+            //  'maxzoom': 14,
+ //             'layout': {
+   //               'text-field': ["get", "sup_dist"],
+     //             'text-size': [
+       //               "interpolate",
+         //             ["linear"],
+           //           ["zoom"],
+             //         10,
+               //       16,
+                 //     22,
+                   //   70
+ //                   ]
+   //             },
+     //         'paint': {
+       //           'text-color':"#a6a6a6",
+         //         'text-halo-color': "#f7f7f7",
+           //       'text-halo-width': 3
+      //        }
+     //       });
       
       //////////////////PRECINCT POLYGON//////////////////////////////////
         map.addSource('precincts', {

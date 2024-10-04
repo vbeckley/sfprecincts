@@ -42,7 +42,7 @@
     };
     
     mapboxgl.accessToken = 'pk.eyJ1IjoidmljdG9yaWFiZWNrbGV5IiwiYSI6ImNsMXlpa3J6ZjBjeDgzY28zb2lmYm1kejIifQ.iovH6zCr8nvi07wE0SQIdA'; //Mapbox token 
-    var map = new mapboxgl.Map({
+    const map = new mapboxgl.Map({
       container: 'map', // container id
       style: "mapbox://styles/mapbox/light-v11",
       center: [-122.41333,37.75877], // starting position [lng, lat]
@@ -52,7 +52,7 @@
 
     map.on('load', () => {
        //////////////////SUPERVISOR POLYGONS/////////////////////////////////////
-           map.addSource('sup_dist', {
+           map.addSource('sup-dist', {
             type: 'geojson',
             // Use a URL for the value for the `data` property.
             data: 'https://vbeckley.github.io/election2024/Supervisor_Districts.geojson'
@@ -61,44 +61,12 @@
             map.addLayer({
               'id': 'sup-line',
               'type': 'line',
-              'source': 'sup_dist',
+              'source': 'sup-dist',
               'paint': {
                 'line-color': "#8c8c8c",
                 'line-width': 2
               }
             });
-      
-            //////////////////SUPERVISOR DISTRICTS CENTROIDS FOR LABEL////////////////// 
-    //        map.addSource('sup_centroid', {
-      //      type: 'csv',
-        //    // Use a URL for the value for the `data` property.
-          //  data: 'https://vbeckley.github.io/election2024/sup_pt_xy.csv'
-           // });
-      
-          //Add again, this time as a label
-    //        map.addLayer({
-      //        'id': 'sup_label',
-        //      'type': 'symbol',
-          //    'source': 'sup_centroid',
-            //  'maxzoom': 14,
- //             'layout': {
-   //               'text-field': ["get", "sup_dist"],
-     //             'text-size': [
-       //               "interpolate",
-         //             ["linear"],
-           //           ["zoom"],
-             //         10,
-               //       16,
-                 //     22,
-                   //   70
- //                   ]
-   //             },
-     //         'paint': {
-       //           'text-color':"#a6a6a6",
-         //         'text-halo-color': "#f7f7f7",
-           //       'text-halo-width': 3
-      //        }
-     //       });
       
       //////////////////PRECINCT POLYGON//////////////////////////////////
         map.addSource('precincts', {
@@ -149,7 +117,7 @@
             });
       
           //////////////////PRECINCT CENTROIDS FOR LABEL////////////////// 
-          map.addSource('precincts_centroid', {
+          map.addSource('precincts-centroid', {
             type: 'geojson',
             // Use a URL for the value for the `data` property.
             data: 'https://vbeckley.github.io/election2024/Precincts_Centroid.geojson'
@@ -159,7 +127,7 @@
             map.addLayer({
               'id': 'precincts-label',
               'type': 'symbol',
-              'source': 'precincts_centroid',
+              'source': 'precincts-centroid',
               'minzoom': 12.95,
               'layout': {
                   'text-field': ["get", "prec_2022"],
@@ -217,12 +185,12 @@
     // After the last frame rendered before the map enters an "idle" state
     map.on('idle', () => {
         // If these two layers were not added to the map, abort
-        if (!map.getLayer('precints_fill') || !map.getLayer('sup_line')) {
+        if (!map.getLayer('precints-fill') || !map.getLayer('sup-line')) {
             return;
         }
 
         // Enumerate ids of the layers.
-        const toggleableLayerIds = ['precints_fill', 'sup_line'];
+        const toggleableLayerIds = ['precints-fill', 'sup-line'];
 
         // Set up the corresponding toggle button for each layer.
         for (const id of toggleableLayerIds) {

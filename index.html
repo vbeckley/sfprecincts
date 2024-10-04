@@ -110,6 +110,27 @@
                 'fill-opacity': .5
               }
             });
+          ///////////////////PRIORITY PRECINCTS/////////////////
+            map.addLayer({
+              'id': 'precincts-priority',
+              'type': 'line',
+              'source': 'precincts',
+              'filter':
+                [
+                  "all",
+                  [
+                    "match",
+                    ["get", "Priority"],
+                    [1],
+                    true,
+                    false
+                  ]
+                ]
+              'paint': {
+                'line-color': "#888888",
+                'line-width': 2
+              }
+            });
 
             //Add the the layer to the map
             map.addLayer({

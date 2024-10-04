@@ -152,16 +152,12 @@
         // open a popup at the location of the click, with description
         // HTML from the click event's properties.
         map.on('click', 'precincts-fill', (e) => {
-          const priority = null;
-              if (
-                e.features[0].properties.Priority == "0"
-              ) {
-                priority = '';
+          const priority = e.features[0].properties.Priority;
+          if (priority == "0") {
+                priority = "";
               } else {
-                priority = e.features[0].properties.Priority;
-              };
-              return priority;
-  
+                priority = priority;
+              }
           const description = `<h3>` + "Precinct " + e.features[0].properties.Precinct + `</h3>` + 
                 `<h4>` + `<b>` + `Priority: ` + `</b>` 
                 + priority  + `</h4>` +

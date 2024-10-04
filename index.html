@@ -115,6 +115,8 @@
               'id': 'precincts-priority',
               'type': 'line',
               'source': 'precincts',
+              'layout': {
+                  'visibility': 'none',
               'filter':
                 [
                   "all",
@@ -218,12 +220,12 @@
     // After the last frame rendered before the map enters an "idle" state
     map.on('idle', () => {
         // If these two layers were not added to the map, abort
-        if (!map.getLayer('precincts-fill') || !map.getLayer('sup-line')) {
+        if (!map.getLayer('precincts-fill') || !map.getLayer('precincts-priority')) {
             return;
         }
 
         // Enumerate ids of the layers.
-        const toggleableLayerIds = ['precincts-fill', 'sup-line'];
+        const toggleableLayerIds = ['precincts-fill', 'precincts-priority'];
 
         // Set up the corresponding toggle button for each layer.
         for (const id of toggleableLayerIds) {

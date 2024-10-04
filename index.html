@@ -119,16 +119,7 @@
                   'visibility': 'none',
                 },
               'filter':
-                [
-                  "all",
-                  [
-                    "match",
-                    ['to-string',["get", "Completed"]],
-                    ["null"],
-                    false,
-                    true
-                  ]
-                ],
+                ["all", ["has", "Completed"]],
               'paint': {
                   'fill-color':
                   '#eba123',

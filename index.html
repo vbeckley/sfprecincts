@@ -42,7 +42,7 @@
     };
     
     mapboxgl.accessToken = 'pk.eyJ1IjoidmljdG9yaWFiZWNrbGV5IiwiYSI6ImNsMXlpa3J6ZjBjeDgzY28zb2lmYm1kejIifQ.iovH6zCr8nvi07wE0SQIdA'; //Mapbox token 
-    const map = new mapboxgl.Map({
+    var map = new mapboxgl.Map({
       container: 'map', // container id
       style: "mapbox://styles/mapbox/light-v11",
       center: [-122.41333,37.75877], // starting position [lng, lat]
@@ -164,7 +164,7 @@
         //      } else {
           //      priority = priority;
             //  }
-          const description = `<h3>` + "Precinct " + e.features[0].properties.Precinct + `</h3>` + 
+          var description = `<h3>` + "Precinct " + e.features[0].properties.Precinct + `</h3>` + 
                 `<h4>` + `<b>` + `Priority: ` + `</b>` 
                 + e.features[0].properties.Priority  + `</h4>` +
                  `<h4>` + `<b>` + `Complete? ` + `</b>` 
@@ -197,7 +197,7 @@
     // After the last frame rendered before the map enters an "idle" state
     map.on('idle', () => {
         // If these two layers were not added to the map, abort
-        if (!map.getLayer('precints-fill') || !map.getLayer('sup-line')) {
+        if (!map.getLayer('precincts-fill') || !map.getLayer('sup-line')) {
             return;
         }
 

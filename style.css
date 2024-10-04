@@ -18,6 +18,7 @@
 
     .mapboxgl-popup-close-button {
       display: visible;
+      color: #fff;
     }
 
     .mapboxgl-popup-content {

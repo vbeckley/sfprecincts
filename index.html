@@ -110,8 +110,8 @@
                 'fill-opacity': .5
               }
             });
-      //////////////////COMPLETED PRECINCTS///////////////
-            map.addLayer({
+            //////////////////COMPLETED PRECINCTS///////////////
+             map.addLayer({
               'id': 'Complete',
               'type': 'fill',
               'source': 'precincts',
@@ -125,9 +125,22 @@
                   '#eba123',
               }
             });
+      
+             //////////////////PRECINCT LINES////////////////// 
+            //Add the the layer to the map
+            map.addLayer({
+              'id': 'precincts-line',
+              'type': 'line',
+              'source': 'precincts',
+              'paint': {
+                'line-color': "#b3b3b3",
+                'line-width': 1
+              }
+            });
+      
           ///////////////////PRIORITY PRECINCTS/////////////////
             map.addLayer({
-              'id': 'precincts-priority',
+              'id': 'Priority Precincts',
               'type': 'line',
               'source': 'precincts',
               'layout': {
@@ -147,17 +160,6 @@
               'paint': {
                 'line-color': "#111111",
                 'line-width': 2
-              }
-            });
-
-            //Add the the layer to the map
-            map.addLayer({
-              'id': 'precincts-line',
-              'type': 'line',
-              'source': 'precincts',
-              'paint': {
-                'line-color': "#b3b3b3",
-                'line-width': 1
               }
             });
       
@@ -236,12 +238,12 @@
     // After the last frame rendered before the map enters an "idle" state
     map.on('idle', () => {
         // If these two layers were not added to the map, abort
-        if (!map.getLayer('Early Voters') || !map.getLayer('precincts-priority')) {
+        if (!map.getLayer('Early Voters') || !map.getLayer('Priority Precincts')) {
             return;
         }
 
         // Enumerate ids of the layers.
-        const toggleableLayerIds = ['Early Voters', 'precincts-priority'];
+        const toggleableLayerIds = ['Early Voters', 'Priority Precincts'];
 
         // Set up the corresponding toggle button for each layer.
         for (const id of toggleableLayerIds) {

@@ -17,7 +17,7 @@
     }
 
     .mapboxgl-popup-close-button {
-      display: none;
+      display: visible;
     }
 
     .mapboxgl-popup-content {

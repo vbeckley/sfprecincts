@@ -48,6 +48,55 @@
     });
 
     map.on('load', () => {
+       //////////////////SUPERVISOR POLYGONS/////////////////////////////////////
+           map.addSource('sup_dist', {
+            type: 'geojson',
+            // Use a URL for the value for the `data` property.
+            data: 'https://vbeckley.github.io/election2024/Supervisor_Districts.geojson'
+          });
+            //Add the the layer to the map
+            map.addLayer({
+              'id': 'sup-line',
+              'type': 'line',
+              'source': 'sup_dist',
+              'paint': {
+                'line-color': "#8c8c8c",
+                'line-width': 2
+              }
+            });
+      
+            //////////////////SUPERVISOR DISTRICTS CENTROIDS FOR LABEL////////////////// 
+                map.addSource('sup_centroid', {
+            type: 'csv',
+            // Use a URL for the value for the `data` property.
+            data: 'https://vbeckley.github.io/election2024/sup_pt_xy.csv'
+            });
+      
+          //Add again, this time as a label
+            map.addLayer({
+              'id': 'sup_label',
+              'type': 'symbol',
+              'source': 'sup_centroid',
+              'maxzoom': 14,
+              'layout': {
+                  'text-field': ["get", "sup_dist"],
+                  'text-size': [
+                      "interpolate",
+                      ["linear"],
+                      ["zoom"],
+                      10,
+                      16,
+                      22,
+                      70
+                    ]
+                },
+              'paint': {
+                  'text-color':"#a6a6a6",
+                  'text-halo-color': "#f7f7f7",
+                  'text-halo-width': 3
+              }
+            });
+      
       //////////////////PRECINCT POLYGON//////////////////////////////////
         map.addSource('precincts', {
             type: 'geojson',
@@ -95,6 +144,7 @@
                 'line-width': 1
               }
             });
+      
           //////////////////PRECINCT CENTROIDS FOR LABEL////////////////// 
           map.addSource('precincts_centroid', {
             type: 'geojson',
@@ -123,55 +173,6 @@
                 },
               'paint': {
                   'text-color':"#424242"
-              }
-            });
-      
-          //////////////////SUPERVISOR POLYGONS/////////////////////////////////////
-           map.addSource('sup_dist', {
-            type: 'geojson',
-            // Use a URL for the value for the `data` property.
-            data: 'https://vbeckley.github.io/election2024/Supervisor_Districts.geojson'
-          });
-            //Add the the layer to the map
-            map.addLayer({
-              'id': 'sup-line',
-              'type': 'line',
-              'source': 'sup_dist',
-              'paint': {
-                'line-color': "#8c8c8c",
-                'line-width': 2
-              }
-            });
-      
-            //////////////////SUPERVISOR DISTRICTS CENTROIDS FOR LABEL////////////////// 
-                map.addSource('sup_centroid', {
-            type: 'csv',
-            // Use a URL for the value for the `data` property.
-            data: 'https://vbeckley.github.io/election2024/sup_pt_xy.csv'
-            });
-      
-          //Add again, this time as a label
-            map.addLayer({
-              'id': 'sup_label',
-              'type': 'symbol',
-              'source': 'sup_centroid',
-              'maxzoom': 14,
-              'layout': {
-                  'text-field': ["get", "sup_dist"],
-                  'text-size': [
-                      "interpolate",
-                      ["linear"],
-                      ["zoom"],
-                      10,
-                      16,
-                      22,
-                      70
-                    ]
-                },
-              'paint': {
-                  'text-color':"#a6a6a6",
-                  'text-halo-color': "#f7f7f7",
-                  'text-halo-width': 3
               }
             });
 

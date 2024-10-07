@@ -120,8 +120,14 @@
                 },
               'filter':[
                 "all",
-                ["has", "Completed"]
+                [
+                  "match",
+                  ["get", "Completed"],
+                  ["0"],
+                  false,
+                  true
                 ]
+              ]
               ,
               'paint': {
                   'fill-color':

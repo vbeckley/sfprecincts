@@ -75,7 +75,7 @@
         map.addSource('precincts', {
             type: 'geojson',
             // Use a URL for the value for the `data` property.
-            data: 'https://vbeckley.github.io/election2024/Precincts_Oct_3.geojson'
+            data: 'https://vbeckley.github.io/election2024/Precincts_Oct_7.geojson'
         });
 
             //Add again, this time as a fill
@@ -251,7 +251,7 @@
         }
 
         // Enumerate ids of the layers.
-        const toggleableLayerIds = ['Early Voters', 'Priority Precincts','Complete'];
+        const toggleableLayerIds = ['Early Voters', 'Priority Precincts','Complete (Updated Oct 7, 11am)'];
 
         // Set up the corresponding toggle button for each layer.
         for (const id of toggleableLayerIds) {

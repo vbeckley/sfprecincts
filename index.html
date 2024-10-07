@@ -123,7 +123,7 @@
                 [
                   "match",
                   ["get", "Completed"],
-                  ["0"],
+                  [0],
                   false,
                   true
                 ]
@@ -160,13 +160,23 @@
                   [
                     "match",
                     ["get", "Priority"],
-                    [1],
+                    [1,2,3],
                     true,
                     false
                   ]
                 ],
               'paint': {
-                'line-color': "#111111",
+                'line-color': [
+                "match",
+                ["get", "Priority"],
+                [1],
+                "#000000",
+                [2],
+                "#555555",
+                [3],
+                "#999999",
+                "#ffffff"
+              ],
                 'line-width': 2
               }
             });

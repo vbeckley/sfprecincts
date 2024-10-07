@@ -120,12 +120,7 @@
                 },
               'filter':[
                 "all",
-                [
-                  "match",
-                  ["get", "Completed"],
-                  [0],
-                  false,
-                  true
+                ["has", "Completed"]
                 ]
               ],
               'paint': {

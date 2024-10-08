@@ -279,7 +279,7 @@
       map.on('click', 'Zoning Districts', (e) => {
         new mapboxgl.Popup()
                 .setLngLat(e.lngLat)
-                .setHTML(e.features[0].properties.gen + ': ' + e.features[0].properties.districtname)
+                .setHTML(e.features[0].properties.gen + ': ' + e.features[0].properties.districtna)
                 .addTo(map);
         });
 
@@ -319,7 +319,7 @@
             link.id = id;
             link.href = '#';
             link.textContent = id;
-            link.className = 'active';
+            link.className = '';
 
             // Show or hide layer when the toggle is clicked.
             link.onclick = function (e) {

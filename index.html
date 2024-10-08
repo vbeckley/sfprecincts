@@ -279,7 +279,14 @@
       map.on('click', 'Zoning Districts', (e) => {
         new mapboxgl.Popup()
                 .setLngLat(e.lngLat)
-                .setHTML('<h4>' + e.features[0].properties.gen + '</h4>' + '<h3>' + e.features[0].properties.districtna + '</h3>')
+                .setHTML('<h3>' + e.features[0].properties.gen + '</h3>' + '<h4>' + e.features[0].properties.districtna + '</h4>')
+                .addTo(map);
+        });
+
+        map.on('click', 'Priority Precincts', (e) => {
+        new mapboxgl.Popup()
+                .setLngLat(e.lngLat)
+                .setHTML('<h3>' + e.features[0].properties.Priority + '</h3>')
                 .addTo(map);
         });
 

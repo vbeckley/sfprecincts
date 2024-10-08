@@ -76,13 +76,13 @@
                   "#adadad",
                   ["Public"],
                   "#0899e7",
-                  ["Commerical"],
-                  "#e70808",
+                  ["Commercial"],
+                  "#bd0a0a",
                   ["Residential"],
                   "#e7e408",
                   "#000000"
                 ],
-                'fill-opacity': .75
+                'fill-opacity': .5
               }
             });      
       
@@ -274,7 +274,7 @@
         // HTML from the click event's properties.
         map.on('click', 'Early Voters', (e) => {
   //        const priority = e.features[0].properties.Priority;
-    //      if (priority == 0) {
+    //      if (priority == "0") {
       //          priority = "";
         //      } else {
           //      priority = priority;
@@ -292,6 +292,13 @@
             new mapboxgl.Popup()
                 .setLngLat(e.lngLat)
                 .setHTML(description)
+                .addTo(map);
+        });
+
+      map.on('click', 'Zoning Districts', (e) => {
+        new mapboxgl.Popup()
+                .setLngLat(e.lngLat)
+                .setHTML(e.features[0].properties.gen + ': ' + e.features[0].properties.districtname)
                 .addTo(map);
         });
 

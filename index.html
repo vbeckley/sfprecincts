@@ -283,13 +283,6 @@
                 .addTo(map);
         });
 
-        map.on('click', 'Priority Precincts', (e) => {
-        new mapboxgl.Popup()
-                .setLngLat(e.lngLat)
-                .setHTML('<h3>' + e.features[0].properties.Priority + '</h3>')
-                .addTo(map);
-        });
-
         // Change the cursor to a pointer when
         // the mouse is over the states layer.
         map.on('mouseenter', 'Early Voters', () => {

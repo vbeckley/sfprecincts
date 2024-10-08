@@ -279,7 +279,7 @@
       map.on('click', 'Zoning Districts', (e) => {
         new mapboxgl.Popup()
                 .setLngLat(e.lngLat)
-                .setHTML(e.features[0].properties.gen + ': ' + e.features[0].properties.districtna)
+                .setHTML(e.features[0].properties.gen + '<br>' + e.features[0].properties.districtna)
                 .addTo(map);
         });
 

@@ -51,7 +51,42 @@
     });
 
     map.on('load', () => {
-       //////////////////SUPERVISOR POLYGONS/////////////////////////////////////
+      
+       ////////////////// ZONING /////////////////////////////////////
+           map.addSource('zoning', {
+            type: 'geojson',
+            // Use a URL for the value for the `data` property //
+            data: 'https://vbeckley.github.io/election2024/zoning.geojson'
+          });
+            //Add the the layer to the map
+            map.addLayer({
+              'id': 'Zoning Districts',
+              'type': 'fill',
+              'source': 'zoning',
+              'layout': {
+                  'visibility': 'none',
+              },
+              'paint': {
+                'fill-color': [
+                  "match",
+                  ["get", "gen"],
+                  ["Mixed Use"],
+                  "#6908e7",
+                  ["Industrial"],
+                  "#adadad",
+                  ["Public"],
+                  "#0899e7",
+                  ["Commerical"],
+                  "#e70808",
+                  ["Residential"],
+                  "#e7e408",
+                  "#000000"
+                ],
+                'fill-opacity': .75
+              }
+            });      
+      
+      ////////////////// SUPERVISOR POLYGONS /////////////////////////////////////
            map.addSource('sup-dist', {
             type: 'geojson',
             // Use a URL for the value for the `data` property.
@@ -66,8 +101,27 @@
                   'visibility': 'visible',
               },
               'paint': {
-                'line-color': "#8c8c8c",
-                'line-width': 2
+                  'fill-color':
+                  [
+                  "interpolate",
+                  ["linear"],
+                  ["to-number",
+                   [
+                    "get",
+                    "Early_ppl_Under_20_Units"
+                  ]],
+                  1,
+                  "#e9a3c9",
+                  100,
+                  "#fde0ef",
+                  200,
+                  "#e6f5d0",
+                  300,
+                  "#a1d76a",
+                  422,
+                  "#3b7019"
+                ],
+                'fill-opacity': .5
               }
             });
       
@@ -110,6 +164,7 @@
                 'fill-opacity': .5
               }
             });
+      
             //////////////////COMPLETED PRECINCTS///////////////
              map.addLayer({
               'id': 'Complete (Updated Oct 7, 11am)',
@@ -262,7 +317,7 @@
         }
 
         // Enumerate ids of the layers.
-        const toggleableLayerIds = ['Early Voters', 'Priority Precincts','Complete (Updated Oct 7, 11am)'];
+        const toggleableLayerIds = ['Early Voters', 'Priority Precincts','Zoning Districts','Complete (Updated Oct 7, 11am)'];
 
         // Set up the corresponding toggle button for each layer.
         for (const id of toggleableLayerIds) {

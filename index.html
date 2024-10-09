@@ -110,7 +110,7 @@
         map.addSource('precincts', {
             type: 'geojson',
             // Use a URL for the value for the `data` property.
-            data: 'https://vbeckley.github.io/election2024/Precincts_Oct_7.geojson'
+            data: 'https://vbeckley.github.io/election2024/Precincts_Oct_9.geojson'
         });
 
             //Add again, this time as a fill
@@ -148,7 +148,7 @@
       
             //////////////////COMPLETED PRECINCTS///////////////
              map.addLayer({
-              'id': 'Complete (Updated Oct 7, 11am)',
+              'id': 'Complete (Updated Oct 9, 10am)',
               'type': 'fill',
               'source': 'precincts',
               'layout': {
@@ -158,7 +158,7 @@
                 "all",
                 [
                   "match",
-                  ["get", "Completed"],
+                  ["get", "Status"],
                   ["0"],
                   false,
                   true
@@ -166,8 +166,15 @@
               ]
               ,
               'paint': {
-                  'fill-color':
-                  '#eba123',
+                  'fill-color':[
+                    "match",
+                    ["get", "Status"],
+                    ["Done"],
+                    "#faa40f",
+                    ["Partial"],
+                    "#fed080",
+                    "#000000"
+                  ],
               }
             });
       
@@ -264,8 +271,8 @@
                 `<h4>` + `<b>` + `Priority: ` + `</b>` 
                 + e.features[0].properties.Priority  + `</h4>` +
                  `<h4>` + `<b>` + `Complete? ` + `</b>` 
-                + e.features[0].properties.Completed  + '<br>'
-                + e.features[0].properties.Who  + `</h4>` +
+                + e.features[0].properties.Completed_1  + '<br>'
+                + e.features[0].properties.F5_G  + `</h4>` +
                 `<h4>` + `<b>` + `Early Voters (Bldg Under 20 Units): ` + `</b>` 
                 + e.features[0].properties.Early_ppl_Under_20_Units  + `</h4>` + `<h4>` 
                 + `<b>` + `Early Doors (Bldg Under 20 Units): ` + `</b>` 
@@ -305,7 +312,7 @@
         }
 
         // Enumerate ids of the layers.
-        const toggleableLayerIds = ['Early Voters', 'Priority Precincts','Zoning Districts','Complete (Updated Oct 7, 11am)'];
+        const toggleableLayerIds = ['Early Voters', 'Priority Precincts','Zoning Districts','Complete (Updated Oct 9, 10am)'];
 
         // Set up the corresponding toggle button for each layer.
         for (const id of toggleableLayerIds) {

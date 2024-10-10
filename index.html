@@ -189,7 +189,14 @@
                   'visibility': 'none',
                 },
               'filter':[
-                "all", ["has", "G_1"]
+                "all",
+                [
+                  "match",
+                  ["get", "G_1"],
+                  ["Not Done"],
+                  false,
+                  true
+                ]
               ],
               'paint': {
                   'fill-color': "#03a9fc",

@@ -203,6 +203,35 @@
                   'fill-opacity': .75
               }
             });
+
+            //////////////////LIT DROP DOTS PRECINCTS///////////////
+             map.addLayer({
+              'id': 'Lit Drop',
+              'type': 'circle',
+              'source': 'precincts',
+              'layout': {
+                  'visibility': 'none',
+                },
+              'filter':[
+                "all",
+                [
+                  "match",
+                  ["get", "LD_Y_N"],
+                  ["Yes"],
+                  true,
+                  false
+                ]
+              ],
+              'paint': {
+                  'fill-color':[
+                    "match",
+                    ["get", "LD_Cut"],
+                    ["Yes"],
+                    "#999999",
+                    "#111111"
+                  ],
+              }
+            });
       
              //////////////////PRECINCT LINES////////////////// 
             //Add the the layer to the map
@@ -296,12 +325,15 @@
           var description = `<h3>` + "Precinct " + e.features[0].properties.Precinct + `</h3>` + 
                 `<h4>` + `<b>` + `Priority: ` + `</b>` 
                 + e.features[0].properties.Priority  + `</h4>` +
-                 `<h4>` + `<b>` + `Complete? ` + `</b>` 
+                 `<h4>` + `<b>` + `Complete (5/G)? ` + `</b>` 
                 + e.features[0].properties.Completed  + '<br>'
                 + e.features[0].properties.Date  + '<br>'
                 + e.features[0].properties.Who  + '<br>' + '<br>'
                 + '<b>'+ 'G Drop? ' +'</b>' + e.features[0].properties.G_1  + ' '
-                + e.features[0].properties.G_2  + '<br>' + `</h4>` +
+                + e.features[0].properties.G_2  + '<br>' 
+                + '<b>'+ 'Lit Drop (10/26)? ' +'</b>'
+                + 'Shifts: ' + e.features[0].properties.LD_Shifts  + ' '
+                + 'Split Precinct? ' + e.features[0].properties.Cut  + '<br>' + `</h4>` +
                 `<h4>` + `<b>` + `Early Voters (Bldg Under 20 Units): ` + `</b>` 
                 + e.features[0].properties.Early_ppl_Under_20_Units  + `</h4>` + `<h4>` 
                 + `<b>` + `Early Doors (Bldg Under 20 Units): ` + `</b>` 
@@ -341,7 +373,7 @@
         }
 
         // Enumerate ids of the layers.
-        const toggleableLayerIds = ['Early Voters', 'Priority Precincts','Zoning Districts','Complete (Updated Oct 10, 9am)','Complete: G Only'];
+        const toggleableLayerIds = ['Early Voters', 'Priority Precincts','Zoning Districts','Complete (Updated Oct 10, 9am)','Complete: G Only','Lit Drop'];
 
         // Set up the corresponding toggle button for each layer.
         for (const id of toggleableLayerIds) {

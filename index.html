@@ -179,6 +179,23 @@
                   ],
               }
             });
+
+           //////////////////G ONLY COMPLETED PRECINCTS///////////////
+             map.addLayer({
+              'id': 'Complete: G Only',
+              'type': 'fill',
+              'source': 'precincts',
+              'layout': {
+                  'visibility': 'none',
+                },
+              'filter':[
+                "all", ["has", "G_1"]
+              ],
+              'paint': {
+                  'fill-color': "#03a9fc",
+                  'fill-opacity': .75
+              }
+            });
       
              //////////////////PRECINCT LINES////////////////// 
             //Add the the layer to the map
@@ -276,7 +293,7 @@
                 + e.features[0].properties.Completed  + '<br>'
                 + e.features[0].properties.Date  + '<br>'
                 + e.features[0].properties.Who  + '<br>' + '<br>'
-                + 'G Drop? ' + e.features[0].properties.G_1  + ' '
+                + '<b>'+ 'G Drop? ' +'</b>' + e.features[0].properties.G_1  + ' '
                 + e.features[0].properties.G_2  + '<br>' + `</h4>` +
                 `<h4>` + `<b>` + `Early Voters (Bldg Under 20 Units): ` + `</b>` 
                 + e.features[0].properties.Early_ppl_Under_20_Units  + `</h4>` + `<h4>` 
@@ -317,7 +334,7 @@
         }
 
         // Enumerate ids of the layers.
-        const toggleableLayerIds = ['Early Voters', 'Priority Precincts','Zoning Districts','Complete (Updated Oct 10, 9am)'];
+        const toggleableLayerIds = ['Early Voters', 'Priority Precincts','Zoning Districts','Complete (Updated Oct 10, 9am)','Complete: G Only'];
 
         // Set up the corresponding toggle button for each layer.
         for (const id of toggleableLayerIds) {

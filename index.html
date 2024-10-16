@@ -158,8 +158,8 @@
                 "all",
                 [
                   "match",
-                  ["get", "F5_G_complete"],
-                  ["Done","Partial","Committed"],
+                  ["get", "Status"],
+                  ["Done","Partial"],
                   true,
                   false
                 ]
@@ -168,13 +168,11 @@
               'paint': {
                   'fill-color':[
                     "match",
-                    ["get", "F5_G_complete"],
+                    ["get", "Status"],
                     ["Done"],
                     "#faa40f",
                     ["Partial"],
                     "#fed080",
-                    ["Committed"],
-                    "#b68fff",
                     "#000000"
                   ],
               }

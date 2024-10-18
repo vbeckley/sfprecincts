@@ -110,7 +110,7 @@
         map.addSource('precincts', {
             type: 'geojson',
             // Use a URL for the value for the `data` property.
-            data: 'https://vbeckley.github.io/election2024/Precincts_Oct_16.geojson'
+            data: 'https://vbeckley.github.io/election2024/Precincts_Oct_18.geojson'
         });
 
             //Add again, this time as a fill
@@ -148,7 +148,7 @@
       
             //////////////////COMPLETED PRECINCTS///////////////
              map.addLayer({
-              'id': 'Complete (Updated Oct 16, 12pm)',
+              'id': 'Complete (Updated Oct 18, 3pm)',
               'type': 'fill',
               'source': 'precincts',
               'layout': {
@@ -158,7 +158,7 @@
                 "all",
                 [
                   "match",
-                  ["get", "Status"],
+                  ["get", "Completed"],
                   ["Done","Partial"],
                   true,
                   false
@@ -168,7 +168,7 @@
               'paint': {
                   'fill-color':[
                     "match",
-                    ["get", "Status"],
+                    ["get", "Completed"],
                     ["Done"],
                     "#faa40f",
                     ["Partial"],
@@ -190,7 +190,7 @@
                 "all",
                 [
                   "match",
-                  ["get", "G_complete"],
+                  ["get", "G_1"],
                   ["Not Done"],
                   false,
                   true
@@ -326,17 +326,15 @@
                 `<h4>` + `<b>` + `Priority: ` + `</b>` 
                 + e.features[0].properties.Priority  + `</h4>` +
                  `<h4>` + `<b>` + `Complete (5/G)? ` + `</b>` 
-                + e.features[0].properties.F5_G_complete  + '<br>'
-                + e.features[0].properties.Date_1  + '<br>'
-                + e.features[0].properties.Status  + '<br>' 
+                + e.features[0].properties.Completed  + '<br>'
+                + e.features[0].properties.Date  + '<br>'
+                + e.features[0].properties.Who  + '<br>' 
                 + e.features[0].properties.Notes  + '<br>' +'<br>'
-                + '<b>'+ 'G Drop? ' +'</b>' + e.features[0].properties.G_complete  + ' '
-                + e.features[0].properties.G  + '<br>' 
-                + '<b>'+ '5 Only? ' +'</b>' + e.features[0].properties.F5_complete  + ' '
-                + e.features[0].properties.F5  + '<br>' 
+                + '<b>'+ 'G Drop? ' +'</b>' + e.features[0].properties.G_1  + ' '
+                + e.features[0].properties.G_2  + '<br>' 
                 + '<b>'+ 'Lit Drop (10/26)? ' +'</b>'
                 + 'Shifts: ' + e.features[0].properties.LD_Shifts  + ' '
-                + 'Split Precinct? ' + e.features[0].properties.Cut  + '<br>' + `</h4>` +
+                + 'Split Precinct? ' + e.features[0].properties.LD_Cut  + '<br>' + `</h4>` +
                 `<h4>` + `<b>` + `Early Voters (Bldg Under 20 Units): ` + `</b>` 
                 + e.features[0].properties.Early_ppl_Under_20_Units  + `</h4>` + `<h4>` 
                 + `<b>` + `Early Doors (Bldg Under 20 Units): ` + `</b>` 
@@ -376,7 +374,7 @@
         }
 
         // Enumerate ids of the layers.
-        const toggleableLayerIds = ['Early Voters', 'Priority Precincts','Zoning Districts','Complete (Updated Oct 16, 12pm)','Complete: G Only','Lit Drop (10/26)'];
+        const toggleableLayerIds = ['Early Voters', 'Priority Precincts','Zoning Districts','Complete (Updated Oct 18, 3pm)','Complete: G Only','Lit Drop (10/26)'];
 
         // Set up the corresponding toggle button for each layer.
         for (const id of toggleableLayerIds) {

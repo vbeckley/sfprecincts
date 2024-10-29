@@ -690,15 +690,26 @@
                 .setHTML('<h3>' + e.features[0].properties.gen + '</h3>' + '<h4>' + e.features[0].properties.districtna + '</h4>')
                 .addTo(map);
         });
-      const popuplayers = ['All Priority Buildings','MEDA Priority'];
-      map.on('click', popuplayers, (e) => {
-        new mapboxgl.Popup()
-                .setLngLat(e.lngLat)
-                .setHTML('<h3>' + e.features[0].properties.Developer + '</h3>' + '<h4>' + e.features[0].properties.Building_Address + '<br>'
-                         + `# of Voters: ` + e.features[0].properties.Number_of_Voters + '</h4>')
-                .addTo(map);
-        });
       
+      // Define an array of layer names for which you want to add a popup
+      const layers = ['All Priority Buildings', 'MEDA Priority','TNDC Priority'];
+      
+      // Function to generate popup content
+      function generatePopupContent(feature) {
+          return `<h3>${feature.properties.Developer}</h3>
+                  <h4>${feature.properties.Building_Address}<br>
+                  # of Voters: ${feature.properties.Number_of_Voters}</h4>`;
+      }
+      
+      // Loop through each layer name to set up the popup
+      layers.forEach((layer) => {
+          map.on('click', layer, (e) => {
+              new mapboxgl.Popup()
+                  .setLngLat(e.lngLat)
+                  .setHTML(generatePopupContent(e.features[0]))
+                  .addTo(map);
+          });
+      });
 
         // Change the cursor to a pointer when
         // the mouse is over the states layer.

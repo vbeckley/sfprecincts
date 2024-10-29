@@ -358,7 +358,7 @@
                 "all",
                 ["match",
                   ["get", "Developer"],
-                  ["Bridge Housing"],
+                  ["BRIDGE Housing"],
                   true,
                   false]],
               'paint': {
@@ -451,7 +451,7 @@
                 "all",
                 ["match",
                   ["get", "Developer"],
-                  ["Homerise"],
+                  ["HomeRise"],
                   true,
                   false]],
               'paint': {
@@ -690,8 +690,8 @@
                 .setHTML('<h3>' + e.features[0].properties.gen + '</h3>' + '<h4>' + e.features[0].properties.districtna + '</h4>')
                 .addTo(map);
         });
-      
-      map.on('click', 'All Priority Buildings', (e) => {
+      const popuplayers = ['All Priority Buildings','MEDA Priority'];
+      map.on('click', popuplayers, (e) => {
         new mapboxgl.Popup()
                 .setLngLat(e.lngLat)
                 .setHTML('<h3>' + e.features[0].properties.Developer + '</h3>' + '<h4>' + e.features[0].properties.Building_Address + '<br>'

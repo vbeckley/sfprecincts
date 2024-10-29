@@ -223,7 +223,7 @@
             data: 'https://vbeckley.github.io/election2024/priority_buildings.geojson'
         });       
       
-      //////////////////LIT DROP DOTS PRECINCTS///////////////
+      //////////////////PRIORITY BUILDINGS ALL///////////////
              map.addLayer({
               'id': 'All Priority Buildings',
               'type': 'circle',
@@ -239,7 +239,7 @@
        //           true,
        //           false]],
               'paint': {
-                  'circle-size':[
+                  'circle-radius':[
                       "interpolate",
                         ["linear"],
                         ["get", "Number_of_Voters"],

@@ -253,8 +253,408 @@
                   'circle-stroke-width':1
               }
             });
-      
+            //////////////////PRIORITY BUILDINGS MERCY///////////////
+             map.addLayer({
+              'id': 'Mercy Priority',
+              'type': 'circle',
+              'source': 'priority-buildings',
+              'layout': {
+                  'visibility': 'none',
+                },
+              'filter':[
+                "all",
+                ["match",
+                  ["get", "Developer"],
+                  ["Mercy Housing CA"],
+                  true,
+                  false]],
+              'paint': {
+                'circle-color': '#ffffff',  
+                'circle-radius':[
+                      "interpolate",
+                        ["linear"],
+                        ["get", "Number_of_Voters"],
+                        1,
+                        5,
+                        316,
+                        10
+                  ],
+                  'circle-stroke-color': '#000000',
+                  'circle-stroke-width':1
+              }
+            });
+            //////////////////PRIORITY BUILDINGS CCDC///////////////
+             map.addLayer({
+              'id': 'CCDC Priority',
+              'type': 'circle',
+              'source': 'priority-buildings',
+              'layout': {
+                  'visibility': 'none',
+                },
+              'filter':[
+                "all",
+                ["match",
+                  ["get", "Developer"],
+                  ["Chinatown Community Development Center"],
+                  true,
+                  false]],
+              'paint': {
+                'circle-color': '#ffffff',  
+                'circle-radius':[
+                      "interpolate",
+                        ["linear"],
+                        ["get", "Number_of_Voters"],
+                        1,
+                        5,
+                        316,
+                        10
+                  ],
+                  'circle-stroke-color': '#000000',
+                  'circle-stroke-width':1
+              }
+            });
 
+            //////////////////PRIORITY BUILDINGS BHHC///////////////
+             map.addLayer({
+              'id': 'BHHC Priority',
+              'type': 'circle',
+              'source': 'priority-buildings',
+              'layout': {
+                  'visibility': 'none',
+                },
+              'filter':[
+                "all",
+                ["match",
+                  ["get", "Developer"],
+                  ["Bernal Heights Housing Corporation"],
+                  true,
+                  false]],
+              'paint': {
+                'circle-color': '#ffffff',  
+                'circle-radius':[
+                      "interpolate",
+                        ["linear"],
+                        ["get", "Number_of_Voters"],
+                        1,
+                        5,
+                        316,
+                        10
+                  ],
+                  'circle-stroke-color': '#000000',
+                  'circle-stroke-width':1
+              }
+            });
+
+
+            //////////////////PRIORITY BUILDINGS Bridge///////////////
+             map.addLayer({
+              'id': 'Bridge Priority',
+              'type': 'circle',
+              'source': 'priority-buildings',
+              'layout': {
+                  'visibility': 'none',
+                },
+              'filter':[
+                "all",
+                ["match",
+                  ["get", "Developer"],
+                  ["Bridge Housing"],
+                  true,
+                  false]],
+              'paint': {
+                'circle-color': '#ffffff',  
+                'circle-radius':[
+                      "interpolate",
+                        ["linear"],
+                        ["get", "Number_of_Voters"],
+                        1,
+                        5,
+                        316,
+                        10
+                  ],
+                  'circle-stroke-color': '#000000',
+                  'circle-stroke-width':1
+              }
+            });
+
+            //////////////////PRIORITY BUILDINGS ECS///////////////
+             map.addLayer({
+              'id': 'ECS Priority',
+              'type': 'circle',
+              'source': 'priority-buildings',
+              'layout': {
+                  'visibility': 'none',
+                },
+              'filter':[
+                "all",
+                ["match",
+                  ["get", "Developer"],
+                  ["Episcopal Community Services"],
+                  true,
+                  false]],
+              'paint': {
+                'circle-color': '#ffffff',  
+                'circle-radius':[
+                      "interpolate",
+                        ["linear"],
+                        ["get", "Number_of_Voters"],
+                        1,
+                        5,
+                        316,
+                        10
+                  ],
+                  'circle-stroke-color': '#000000',
+                  'circle-stroke-width':1
+              }
+            });
+
+            //////////////////PRIORITY BUILDINGS Glide///////////////
+             map.addLayer({
+              'id': 'Glide Priority',
+              'type': 'circle',
+              'source': 'priority-buildings',
+              'layout': {
+                  'visibility': 'none',
+                },
+              'filter':[
+                "all",
+                ["match",
+                  ["get", "Developer"],
+                  ["Glide Housing, Inc."],
+                  true,
+                  false]],
+              'paint': {
+                'circle-color': '#ffffff',  
+                'circle-radius':[
+                      "interpolate",
+                        ["linear"],
+                        ["get", "Number_of_Voters"],
+                        1,
+                        5,
+                        316,
+                        10
+                  ],
+                  'circle-stroke-color': '#000000',
+                  'circle-stroke-width':1
+              }
+            });
+
+            //////////////////PRIORITY BUILDINGS Homerise///////////////
+             map.addLayer({
+              'id': 'Homerise Priority',
+              'type': 'circle',
+              'source': 'priority-buildings',
+              'layout': {
+                  'visibility': 'none',
+                },
+              'filter':[
+                "all",
+                ["match",
+                  ["get", "Developer"],
+                  ["Homerise"],
+                  true,
+                  false]],
+              'paint': {
+                'circle-color': '#ffffff',  
+                'circle-radius':[
+                      "interpolate",
+                        ["linear"],
+                        ["get", "Number_of_Voters"],
+                        1,
+                        5,
+                        316,
+                        10
+                  ],
+                  'circle-stroke-color': '#000000',
+                  'circle-stroke-width':1
+              }
+            });
+
+            //////////////////PRIORITY BUILDINGS MHDC///////////////
+             map.addLayer({
+              'id': 'MHDC Priority',
+              'type': 'circle',
+              'source': 'priority-buildings',
+              'layout': {
+                  'visibility': 'none',
+                },
+              'filter':[
+                "all",
+                ["match",
+                  ["get", "Developer"],
+                  ["Mission Housing Development Corporation"],
+                  true,
+                  false]],
+              'paint': {
+                'circle-color': '#ffffff',  
+                'circle-radius':[
+                      "interpolate",
+                        ["linear"],
+                        ["get", "Number_of_Voters"],
+                        1,
+                        5,
+                        316,
+                        10
+                  ],
+                  'circle-stroke-color': '#000000',
+                  'circle-stroke-width':1
+              }
+            });
+
+            //////////////////PRIORITY BUILDINGS Swords///////////////
+             map.addLayer({
+              'id': 'Swords to Plowshares Priority',
+              'type': 'circle',
+              'source': 'priority-buildings',
+              'layout': {
+                  'visibility': 'none',
+                },
+              'filter':[
+                "all",
+                ["match",
+                  ["get", "Developer"],
+                  ["Swords to Plowshares"],
+                  true,
+                  false]],
+              'paint': {
+                'circle-color': '#ffffff',  
+                'circle-radius':[
+                      "interpolate",
+                        ["linear"],
+                        ["get", "Number_of_Voters"],
+                        1,
+                        5,
+                        316,
+                        10
+                  ],
+                  'circle-stroke-color': '#000000',
+                  'circle-stroke-width':1
+              }
+            });
+
+            //////////////////PRIORITY BUILDINGS SFCLT///////////////
+             map.addLayer({
+              'id': 'SFCLT Priority',
+              'type': 'circle',
+              'source': 'priority-buildings',
+              'layout': {
+                  'visibility': 'none',
+                },
+              'filter':[
+                "all",
+                ["match",
+                  ["get", "Developer"],
+                  ["San Francisco Community Land Trust"],
+                  true,
+                  false]],
+              'paint': {
+                'circle-color': '#ffffff',  
+                'circle-radius':[
+                      "interpolate",
+                        ["linear"],
+                        ["get", "Number_of_Voters"],
+                        1,
+                        5,
+                        316,
+                        10
+                  ],
+                  'circle-stroke-color': '#000000',
+                  'circle-stroke-width':1
+              }
+            });
+
+            //////////////////PRIORITY BUILDINGS TNDC///////////////
+             map.addLayer({
+              'id': 'TNDC Priority',
+              'type': 'circle',
+              'source': 'priority-buildings',
+              'layout': {
+                  'visibility': 'none',
+                },
+              'filter':[
+                "all",
+                ["match",
+                  ["get", "Developer"],
+                  ["Tenderloin Neighborhood Development Corporation (TNDC)"],
+                  true,
+                  false]],
+              'paint': {
+                'circle-color': '#ffffff',  
+                'circle-radius':[
+                      "interpolate",
+                        ["linear"],
+                        ["get", "Number_of_Voters"],
+                        1,
+                        5,
+                        316,
+                        10
+                  ],
+                  'circle-stroke-color': '#000000',
+                  'circle-stroke-width':1
+              }
+            });
+
+            //////////////////PRIORITY BUILDINGS TODCO///////////////
+             map.addLayer({
+              'id': 'TODCO Priority',
+              'type': 'circle',
+              'source': 'priority-buildings',
+              'layout': {
+                  'visibility': 'none',
+                },
+              'filter':[
+                "all",
+                ["match",
+                  ["get", "Developer"],
+                  ["TODCO"],
+                  true,
+                  false]],
+              'paint': {
+                'circle-color': '#ffffff',  
+                'circle-radius':[
+                      "interpolate",
+                        ["linear"],
+                        ["get", "Number_of_Voters"],
+                        1,
+                        5,
+                        316,
+                        10
+                  ],
+                  'circle-stroke-color': '#000000',
+                  'circle-stroke-width':1
+              }
+            });
+
+            //////////////////PRIORITY BUILDINGS MEDA///////////////
+             map.addLayer({
+              'id': 'MEDA Priority',
+              'type': 'circle',
+              'source': 'priority-buildings',
+              'layout': {
+                  'visibility': 'none',
+                },
+              'filter':[
+                "all",
+                ["match",
+                  ["get", "Developer"],
+                  ["Mission Economic Development Agency"],
+                  true,
+                  false]],
+              'paint': {
+                'circle-color': '#ffffff',  
+                'circle-radius':[
+                      "interpolate",
+                        ["linear"],
+                        ["get", "Number_of_Voters"],
+                        1,
+                        5,
+                        316,
+                        10
+                  ],
+                  'circle-stroke-color': '#000000',
+                  'circle-stroke-width':1
+              }
+            });
         ///////////////////POPUP///////////////////////////////////////
         // When a click event occurs on a feature in the polygon fill layer,
         // open a popup at the location of the click, with description
@@ -302,13 +702,13 @@
 
         // Change the cursor to a pointer when
         // the mouse is over the states layer.
-        map.on('mouseenter', 'Early Voters', () => {
+        map.on('mouseenter', 'All Priority Buildings', () => {
             map.getCanvas().style.cursor = 'pointer';
         });
 
         // Change the cursor back to a pointer
         // when it leaves the states layer.
-        map.on('mouseleave', 'Early Voters', () => {
+        map.on('mouseleave', 'All Priority Buildings', () => {
             map.getCanvas().style.cursor = '';
         });
 });

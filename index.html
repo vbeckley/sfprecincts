@@ -290,6 +290,15 @@
                 .setHTML('<h3>' + e.features[0].properties.gen + '</h3>' + '<h4>' + e.features[0].properties.districtna + '</h4>')
                 .addTo(map);
         });
+      
+      map.on('click', 'All Priority Buildings', (e) => {
+        new mapboxgl.Popup()
+                .setLngLat(e.lngLat)
+                .setHTML('<h3>' + e.features[0].properties.Developer + '</h3>' + '<h4>' + e.features[0].properties.Building_Address + '<br>'
+                         + `# of Voters: ` + e.features[0].properties.Number_of_Voters + '</h4>')
+                .addTo(map);
+        });
+      
 
         // Change the cursor to a pointer when
         // the mouse is over the states layer.

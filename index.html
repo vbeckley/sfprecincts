@@ -660,12 +660,6 @@
         // open a popup at the location of the click, with description
         // HTML from the click event's properties.
         map.on('click', 'Complete (Updated Oct 30, 11am)', (e) => {
-          const priority = e.features[0].properties.Priority;
-          if (priority == "0") {
-                priority = "";
-              } else {
-                priority = priority;
-              }
           var description = `<h3>` + "Precinct " + e.features[0].properties.Precinct + `</h3>` + 
                  `<h4>` + `<b>` + `Complete (5/G)? ` + `</b>` 
                 + e.features[0].properties.Completed  + '<br>'
